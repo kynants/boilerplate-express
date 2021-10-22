@@ -10,8 +10,21 @@ var app = express();
 // });
 
 // 3) Server an HTML File
-app.get("/", function(req, res) {
- res.sendFile(__dirname + "/views/index.html");
+// app.get("/", function(req, res) {
+//  res.sendFile(__dirname + "/views/index.html");
+// });
+
+// 4) Serve Static Assets
+// Normal usage
+// app.use(express.static(__dirname + "/public"));
+// // Assets at the /public route
+// app.use("/public", express.static(__dirname + "/public"));
+
+// 5) Serve JSON on a Specific Route
+app.get("/json", (req, res) => {
+ res.json({
+  "message": "Hello json"
+ });
 });
 
 module.exports = app;
